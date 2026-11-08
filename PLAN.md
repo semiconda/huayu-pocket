@@ -286,4 +286,4 @@ Small enough to build in one pass; the behaviour is in `SPEC.md` under "v3 — S
 *Verified* (headless Chrome, 390 px wide): with only Sounds on the note reads "762 sounds"; Pinyin off gives "No
 questions available with these settings. — Sounds needs Pinyin"; 400 consecutive questions all had four distinct
 options, about 60/40 tone/syllable; tone options come out in tone order; tapping an option after answering leaves
-the marking unchanged. Audio itself needs a phone.
+the marking unchanged. Audio itself needs a phone: on 2026-11-08 the user played it on theirs, and it works.

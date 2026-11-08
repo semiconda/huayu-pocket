@@ -167,7 +167,7 @@
 <h2>What it does</h2>
 <p>Two modes. <b>Test</b> is the quiz; <b>Practice</b> lists the selected lessons as a vocabulary table,
   every row tappable to hear it, with a pencil button that shows how each character is written. Test mixes
-  four kinds of question, each picked about equally often:</p>
+  four kinds of question — word, write, sentence and sound — each picked about equally often:</p>
 <ul class="kinds">
   <li><b>Word</b> — multiple choice between character, pinyin and English, in eight directions, including
     two by ear: hear a word, pick its pinyin or characters.</li>
@@ -176,7 +176,10 @@
   <li><b>Order</b> — the English sentence, and its Chinese words as shuffled tiles to tap into place. This
     is where grammar gets practised: knowing every word of a sentence is not knowing where 很 goes.</li>
   <li><b>Gap</b> — the sentence with one word missing, and four options that all fit the grammar of the
-    slot, so only the meaning of the English decides.</li>
+    slot, so only the meaning of the English decides. Order and Gap are the two sentence questions.</li>
+  <li><b>Sound</b> — hear one syllable and pick it among four that differ from it in exactly one thing:
+    its tone, or one look-alike sound (<i>j/q/x</i>, <i>an/ang</i>, <i>yú/yóu/wú</i>…). After answering,
+    every option plays when tapped, so the near miss can be heard beside the answer.</li>
 </ul>
 
 <div class="shots two">
@@ -233,6 +236,14 @@
   cutting it, so the files are never trimmed: the app decodes each one, finds where the spoken syllable
   starts and stops, and plays only that span with short fades.</p>
 
+<h3>Sounds</h3>
+<p>Word listening lets a rough impression of the sound pass, because its wrong options are other words that
+  differ in several ways at once. Sounds is the textbook's pronunciation drill instead, built from the whole
+  recording set rather than the lessons. Each syllable is split into initial, final and tone, with the
+  spelling rules undone first — <i>yu</i> is ü, <i>you</i> is <i>iou</i>, <i>wei</i> is <i>uei</i> — and
+  its wrong options are the recorded syllables one confusable step away. Every option is a real recording,
+  so 762 syllables have enough neighbours to be asked.</p>
+
 <h3>Writing</h3>
 <p>Characters are vector outlines from <a href="https://hanziwriter.org/">Hanzi Writer</a>, stored in the
   repository so the app keeps working without anyone else's server. Its quiz mode grades each stroke the
@@ -279,7 +290,7 @@
       <td class="num" data-label="Predicted:">all</td><td class="num" data-label="Measured:">6,776 of 6,776</td><td class="ok">✓</td></tr>
     <tr><td>Word order: tiles dealt already in a correct order</td>
       <td class="num" data-label="Predicted:">0</td><td class="num" data-label="Measured:">0 in 200 deals of one sentence; 0 in every deal over 8,000 questions drawing on all 73 sentences, with characters and with pinyin only</td><td class="ok">✓</td></tr>
-    <tr><td>Share of each question kind, all on</td>
+    <tr><td>Share of each question kind, all on (measured before Sounds existed)</td>
       <td class="num" data-label="Predicted:">⅓ each</td><td class="num" data-label="Measured:">word 106 · write 99 · sentence 95 of 300</td><td class="ok">✓</td></tr>
     <tr><td>Gap options are exactly the four written for it</td>
       <td class="num" data-label="Predicted:">20 of 20</td><td class="num" data-label="Measured:">20 of 20</td><td class="ok">✓</td></tr>
@@ -291,6 +302,10 @@
       <td class="num" data-label="Predicted:">35 of 35</td><td class="num" data-label="Measured:">35 of 35</td><td class="ok">✓</td></tr>
     <tr><td>Writing on a real phone, with a finger: right strokes accepted, wrong ones refused</td>
       <td class="num" data-label="Predicted:">at the default tolerance</td><td class="num" data-label="Measured:">checked by hand; default kept</td><td class="ok">✓</td></tr>
+    <tr><td>Sound questions: four different options every time</td>
+      <td class="num" data-label="Predicted:">400 of 400</td><td class="num" data-label="Measured:">400 of 400</td><td class="ok">✓</td></tr>
+    <tr><td>Sound questions on a real phone, by ear</td>
+      <td class="num" data-label="Predicted:">plays and grades</td><td class="num" data-label="Measured:">checked by hand; works</td><td class="ok">✓</td></tr>
   </tbody>
 </table>
 </div>

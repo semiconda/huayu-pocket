@@ -8,7 +8,7 @@ memory is used here, deliberately, so that any fresh session or device can pick 
 asked for it to be updated in parallel with the code. Whenever a change alters what the app does, how lessons are
 added, or how validation works, update `README.md` in the same commit — alongside `SPEC.md`/`PLAN.md`.
 
-## Current state (2026-11-02)
+## Current state (2026-11-08)
 
 - **Live, tested on a phone including audio:** https://semiconda.github.io/huayu-pocket/app/
 - **`app/index.html` is the whole app**: one file, no build step, no backend, no dependencies. Three screens:
@@ -34,7 +34,7 @@ added, or how validation works, update `README.md` in the same commit — alongs
 - **v3 (2026-11-06): Sounds** — a toggle in *What to practise* (needs Pinyin, on by default) that plays one
   syllable and offers it among four that differ only in tone, or only in initial/final within a confusable group
   (yú / yóu / wú, j / q / x, an / ang …). Built from `audio/index.json`, not the decks, so it ignores the lesson
-  chips. Answered options play when tapped. Spec: "v3 — Sounds" in `SPEC.md`. Not yet heard on a phone.
+  chips. Answered options play when tapped. Spec: "v3 — Sounds" in `SPEC.md`. Heard on the user's phone on 2026-11-08: works.
 - **Audio works**, from real MOE recordings — see the decision list below.
 - **Practice rows have a pencil button** that opens a writing sheet: the stroke-order animation, the stroke
   count, and what the character is made of — components with pinyin and gloss, which piece carries the meaning
@@ -146,7 +146,7 @@ Learning Taiwanese Mandarin from zero. The app is for:
 
 ## Open items
 
-- **v2 is complete (2026-11-03).** The user checked writing on their phone and kept `WRITE_LENIENCY` at the
+- **v3 Sounds checked on a phone (2026-11-08)** — works; the project page now describes it. **v2 is complete (2026-11-03).** The user checked writing on their phone and kept `WRITE_LENIENCY` at the
   library default 1.0 (plan task 8), and read the 73 sentences of lessons 1-6 (plan task 10), which a separate
   session had reviewed first (fixes: three missing word orders, 東西 → `dōngxi`). Their only change: no
   sentence calling a person "hot" — the rule is in the authoring guide. The book prints both 姐姐 / 姊姊 for
