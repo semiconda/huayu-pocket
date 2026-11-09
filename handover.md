@@ -158,6 +158,10 @@ Learning Taiwanese Mandarin from zero. The app is for:
   Test is the default; the top status line ("179 words loaded…") doesn't mention the 762 sounds; nothing on the
   screen says the lesson chips don't affect Sounds.
 
+- **Project page (`index.html`), 2026-11-09 — edited with the user, line by line.** Their rules for it:
+  impersonal (no "I/my"), no em-dash asides (commas, colons, brackets), describe only what the app does (no cut
+  or planned features, no backstory asides), plain sentences over dense ones. Edits are pushed as soon as asked.
+  The class wall card is up (`showcase-2026/projects/semiconda--huayu-pocket.json`, blurb in the user's words).
 - **v3 Sounds checked on a phone (2026-11-08)** — works; the project page now describes it. **v2 is complete (2026-11-03).** The user checked writing on their phone and kept `WRITE_LENIENCY` at the
   library default 1.0 (plan task 8), and read the 73 sentences of lessons 1-6 (plan task 10), which a separate
   session had reviewed first (fixes: three missing word orders, 東西 → `dōngxi`). Their only change: no
