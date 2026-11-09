@@ -31,10 +31,13 @@ added, or how validation works, update `README.md` in the same commit — alongs
   that can run. Sentences live in `app/decks/lessonNN.sentences.csv`, attached to the lesson of the same stem;
   `tools/check_deck.py` validates them (34 fixtures in `tools/fixtures/sentences/`, run by `--fixtures` and in
   CI). Spec and plan: the v2 sections of `SPEC.md` and `PLAN.md`; status of each plan task is in Open items.
-- **v3 (2026-11-06): Sounds** — a toggle in *What to practise* (needs Hearing and Pinyin since 2026-11-09, on by default) that plays one
+- **v3 (2026-11-06): Sounds** — a toggle in *What to practise* (needs Hearing and Pinyin, on by default) that plays one
   syllable and offers it among four that differ only in tone, or only in initial/final within a confusable group
   (yú / yóu / wú, j / q / x, an / ang …). Built from `audio/index.json`, not the decks, so it ignores the lesson
   chips. Answered options play when tapped. Spec: "v3 — Sounds" in `SPEC.md`. Heard on the user's phone on 2026-11-08: works.
+- **2026-11-09: start screen is what × how** — rows *What to practise* (Words · Sentences · Sounds), *How to
+  practise* (Reading · Hearing · Writing), *Show in* (Pinyin · Characters). Added so Sounds can be practised alone
+  while Hearing off still means no audio (the user chose this). Spec: "Start screen: what × how" in `SPEC.md`.
 - **Audio works**, from real MOE recordings — see the decision list below.
 - **Practice rows have a pencil button** that opens a writing sheet: the stroke-order animation, the stroke
   count, and what the character is made of — components with pinyin and gloss, which piece carries the meaning

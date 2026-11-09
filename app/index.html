@@ -774,6 +774,14 @@
       </div>
 
       <div class="toggle-group">
+        <div id="what-block">
+          <div class="toggle-label">What to practise</div>
+          <div class="toggle-row">
+            <button type="button" class="toggle on" data-toggle="words">Words</button>
+            <button type="button" class="toggle on" data-toggle="sentences">Sentences</button>
+            <button type="button" class="toggle on" data-toggle="sounds">Sounds</button>
+          </div>
+        </div>
         <div id="how-block">
           <div class="toggle-label">How to practise</div>
           <div class="toggle-row">
@@ -782,12 +790,10 @@
             <button type="button" class="toggle on" data-toggle="writing">Writing</button>
           </div>
         </div>
-        <div class="toggle-label">What to practise</div>
+        <div class="toggle-label">Show in</div>
         <div class="toggle-row">
           <button type="button" class="toggle on" data-toggle="pinyin">Pinyin</button>
           <button type="button" class="toggle on" data-toggle="characters">Characters</button>
-          <button type="button" class="toggle on" data-toggle="sentences">Sentences</button>
-          <button type="button" class="toggle on" data-toggle="sounds">Sounds</button>
         </div>
         <div id="toggle-note" class="status"></div>
       </div>
@@ -1010,14 +1016,17 @@
   // outward — English is never the prompt, since English isn't what's being learned.
   //
   // WRITING, SENTENCES and SOUNDS each add a question kind beside the word directions above;
-  // see "Start-screen controls" in SPEC.md for when each one can actually run.
+  // see "Start-screen controls" in SPEC.md for when each one can actually run. The rows are
+  // what (WORDS, SENTENCES, SOUNDS) × how (READING, HEARING, WRITING), shown in PINYIN/CHARACTERS.
   const toggles = {
+    words: true, sentences: true, sounds: true,
     reading: true, hearing: true, writing: true,
-    pinyin: true, characters: true, sentences: true, sounds: true,
+    pinyin: true, characters: true,
   };
 
   function allowedDirectionKeys() {
     const keys = new Set();
+    if (!toggles.words) return keys;
     const anyScript = toggles.pinyin || toggles.characters;
     if (toggles.reading) {
       if (toggles.characters) {
@@ -1366,7 +1375,7 @@
     const anyScript = () => toggles.pinyin || toggles.characters;
     const wordRuns = () => allowedDirectionKeys().size > 0 && countAvailable() > 0;
     // There is no writing pinyin, so Writing needs Characters whatever else is on.
-    const writeRuns = () => toggles.writing && toggles.characters && writable.length > 0;
+    const writeRuns = () => toggles.words && toggles.writing && toggles.characters && writable.length > 0;
     // Each kind also needs the way it is practised, so turning a way off really removes it:
     // sentences are read (there is no sentence audio), sounds are heard.
     const sentenceRuns = () => toggles.sentences && toggles.reading && anyScript() && sentences.length > 0;
@@ -1411,6 +1420,7 @@
   const modeSwitch = document.getElementById("mode-switch");
   const modeButtons = Array.from(document.querySelectorAll(".mode-opt[data-mode]"));
   const howBlock = document.getElementById("how-block");
+  const whatBlock = document.getElementById("what-block");
   const practiceScreen = document.getElementById("practice-screen");
   const practiceBack = document.getElementById("practice-back");
   const quizBack = document.getElementById("quiz-back");
@@ -1432,9 +1442,7 @@
   const strokeClose = document.getElementById("stroke-close");
   const strokeReplay = document.getElementById("stroke-replay");
   const strokeSay = document.getElementById("stroke-say");
-  const writingToggle = document.querySelector('.toggle[data-toggle="writing"]');
-  const sentencesToggle = document.querySelector('.toggle[data-toggle="sentences"]');
-  const soundsToggle = document.querySelector('.toggle[data-toggle="sounds"]');
+  const toggleEl = name => document.querySelector('.toggle[data-toggle="' + name + '"]');
   const promptSubEl = document.getElementById("prompt-sub");
   const sentenceLine = document.getElementById("sentence-line");
   const tileBank = document.getElementById("tile-bank");
@@ -1664,10 +1672,9 @@
     // Practice draws no reading/hearing distinction — every row is readable and carries its
     // own play button — so the toggles that would claim otherwise come off screen entirely.
     howBlock.classList.toggle("hidden", mode === "practice");
-    // Sentences sits among the scripts, which practice keeps for its columns, so it has to
-    // come off on its own: the vocabulary table has no sentences to show.
-    sentencesToggle.classList.toggle("hidden", mode === "practice");
-    soundsToggle.classList.toggle("hidden", mode === "practice");
+    // Practice is the vocabulary table — words only — so there is no "what" to choose either;
+    // only the scripts stay, choosing its columns.
+    whatBlock.classList.toggle("hidden", mode === "practice");
     startBtn.textContent = mode === "practice" ? "Show vocabulary" : "Start";
 
     toggleButtons.forEach(btn => {
@@ -1676,9 +1683,19 @@
       btn.disabled = (name === "hearing" || name === "sounds") && !hearingPossible;
       btn.setAttribute("aria-pressed", String(Boolean(toggles[name])));
     });
-    writingToggle.classList.toggle("inert", Boolean(quiz) && toggles.writing && !quiz.writeRuns());
-    sentencesToggle.classList.toggle("inert", Boolean(quiz) && toggles.sentences && !quiz.sentenceRuns());
-    soundsToggle.classList.toggle("inert", Boolean(quiz) && toggles.sounds && !quiz.soundRuns());
+    // A toggle that is on but feeds no question greys. Reading, Hearing and Writing each count
+    // as busy if any kind they serve runs.
+    const busy = quiz && {
+      words: quiz.wordRuns() || quiz.writeRuns(),
+      sentences: quiz.sentenceRuns(),
+      sounds: quiz.soundRuns(),
+      reading: quiz.sentenceRuns() || (toggles.words && toggles.reading && quiz.wordRuns()),
+      hearing: quiz.soundRuns() || (toggles.words && toggles.hearing && quiz.wordRuns()),
+      writing: quiz.writeRuns(),
+    };
+    Object.keys(busy || {}).forEach(name => {
+      toggleEl(name).classList.toggle("inert", toggles[name] && !busy[name]);
+    });
 
     if (mode === "practice") {
       const total = practiceGroups.reduce((n, g) => n + g.items.length, 0);
@@ -1709,21 +1726,33 @@
       const missing = prereqs.filter(([, met]) => !met).map(([name]) => name);
       if (on && missing.length) idle.push(kind + " needs " + missing.join(" and "));
     };
-    need(toggles.writing, "Writing", ["Characters", toggles.characters]);
+    const anyWay = toggles.reading || toggles.hearing || toggles.writing;
+    const anyWhat = toggles.words || toggles.sentences || toggles.sounds;
+    need(toggles.words, "Words", ["Reading, Hearing or Writing", anyWay]);
     need(toggles.sentences, "Sentences", ["Reading", toggles.reading]);
     need(toggles.sounds, "Sounds", ["Hearing", toggles.hearing], ["Pinyin", toggles.pinyin]);
     if (toggles.sentences && quiz.sentenceCount === 0) idle.push("no sentences in these lessons yet");
+    if (toggles.reading && !busy.reading && !toggles.words && !toggles.sentences) {
+      idle.push("Reading needs Words or Sentences");
+    }
+    if (toggles.hearing && !busy.hearing && !toggles.words && !toggles.sounds) {
+      idle.push("Hearing needs Words or Sounds");
+    }
+    need(toggles.writing, "Writing", ["Words", toggles.words], ["Characters", toggles.characters]);
 
     let note;
     if (!toggles.pinyin && !toggles.characters) {
       note = "Pick pinyin, characters, or both.";
     } else if (!runs) {
-      const anyWay = toggles.reading || toggles.hearing || toggles.writing;
-      note = anyWay ? "No questions available with these settings." : "Pick at least one way to practise.";
+      note = !anyWhat ? "Pick words, sentences or sounds."
+        : !anyWay ? "Pick at least one way to practise."
+        : "No questions available with these settings.";
     } else {
       note = parts.join(" · ");
     }
-    if (idle.length && (toggles.pinyin || toggles.characters)) note += " — " + idle.join("; ");
+    // A "Pick …" line already says what to do; the needs would only repeat it.
+    const picked = (toggles.pinyin || toggles.characters) && anyWhat && anyWay;
+    if (idle.length && picked) note += " — " + idle.join("; ");
     toggleNote.textContent = note;
     toggleNote.classList.toggle("error", !runs);
     startBtn.disabled = !runs;

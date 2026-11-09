@@ -288,7 +288,20 @@ questions available with these settings. — Sounds needs Pinyin"; 400 consecuti
 options, about 60/40 tone/syllable; tone options come out in tone order; tapping an option after answering leaves
 the marking unchanged. Audio itself needs a phone: on 2026-11-08 the user played it on theirs, and it works.
 
-**2026-11-09, toggles follow what × how.** `soundRuns()` also requires Hearing and `sentenceRuns()` Reading, so
-turning a way off removes every kind that uses it. The idle note is built by a `need(on, kind, …prereqs)` helper:
-"Writing needs Characters", "Sentences needs Reading", "Sounds needs Hearing and Pinyin". "Pick at least one way
-to practise" now counts only Reading, Hearing and Writing as ways.
+## 2026-11-09 — Start screen: what × how
+
+Behaviour in `SPEC.md` under "Start screen: what × how".
+
+- Markup: three rows, `#what-block` (Words · Sentences · Sounds), `#how-block`, then *Show in* (Pinyin ·
+  Characters). Practice hides the first two.
+- `toggles.words` gates `allowedDirectionKeys()` and `writeRuns()`; `sentenceRuns()` also needs Reading and
+  `soundRuns()` Hearing.
+- `refreshToggles()` builds a `busy` map (does each on-toggle feed a running kind?) and greys with `.inert`
+  whatever is on but idle; the note's needs come from a `need(on, kind, …prereqs)` helper, and are left off when
+  the line is already a "Pick …" instruction.
+
+*Verified* (headless Edge over DevTools): all on gives "9 question types · 179 words · 179 to write · 73
+sentences · 762 sounds"; Sounds + Hearing + Pinyin alone gives "762 sounds" and starts on "Which tone do you
+hear?"; Words + Hearing gives "3 question types · 154 words"; Hearing off drops the sounds and greys Sounds;
+Sounds with Reading and Writing left on greys both with "Reading needs Words or Sentences; Writing needs Words";
+Writing without Characters says "Writing needs Characters"; practice hides What and How.

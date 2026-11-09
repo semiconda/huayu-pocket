@@ -136,7 +136,8 @@ practice is the reference view you reach for when a word won't stick. Below it, 
 lesson at once, since drilling a single lesson otherwise means deselecting all the others one at a time.
 
 Four toggles on the start screen, all on by default, select which question types a session uses. Two are about
-modality — **Reading**, **Hearing** — and two about script — **Pinyin**, **Characters**.
+modality — **Reading**, **Hearing** — and two about script — **Pinyin**, **Characters**. *(v1; the start screen
+now has three rows and a Words toggle — see "Start screen: what × how".)*
 
 The script toggles are deliberately *not* symmetric:
 
@@ -307,11 +308,13 @@ with the note saying why — the same treatment v1 gives Hearing without audio:
 |---|---|
 | word (v1 directions) | (Reading or Hearing) and (Pinyin or Characters), as in v1 |
 | write | Writing **and** Characters (there is no writing pinyin), and at least one selected word has stroke data for all its characters |
-| sentence | Sentences **and** Reading (sentences are read; there is no sentence audio) **and** (Pinyin or Characters) **and** at least one selected lesson has a sentence file. Never for a hand-loaded CSV: Sentences is disabled there |
+| sentence | Sentences **and** (Pinyin or Characters) **and** at least one selected lesson has a sentence file. Never for a hand-loaded CSV: Sentences is disabled there |
 
 **Start** is enabled when at least one kind runs. v1's "Pick reading, hearing, or both" becomes "Pick at least one
 way to practise", shown only when no kind runs. The start-screen count reports each running kind separately:
 "N word questions · M words to write · K sentences".
+
+*Superseded on 2026-11-09 by three rows — see "Start screen: what × how" below.*
 
 - How a sentence is *shown* follows the script toggles, as practice-mode columns do: tiles and the gapped line
   show characters with Characters on, pinyin with Pinyin on, both stacked with both on. With Pinyin alone a
@@ -548,13 +551,43 @@ before any repeats, as for the other kinds.
 **Controls.** A **Sounds** toggle in *What to practise*, on by default like the others. It needs **Pinyin** (the
 answers are pinyin), as Writing needs Characters; with Pinyin off it greys and the note says "Sounds needs
 Pinyin". It is disabled when there is no audio, like Hearing, and hidden in practice mode, like Sentences. It
-also needs **Hearing**: a sound question is audio by nature, so someone who turns Hearing off (no headphones, a
-quiet room) must get no audio at all; with Hearing off it greys and the note says "Sounds needs Hearing" (or
-"Sounds needs Hearing and Pinyin"). *(Revised 2026-11-09; at first Sounds ignored Reading and Hearing, which let
-audio play with Hearing off. Sentences was given the matching rule, needing Reading.)* The rows read as *what*
-(the material) × *how* (the way it reaches you): each kind in *What to practise* runs only with the way it can be
-practised. The start-screen count adds "N sounds".
-Mixing is unchanged — one more kind in the uniform pick.
+ignores Reading and Hearing: a sound question is audio by nature. The start-screen count adds "N sounds".
+Mixing is unchanged — one more kind in the uniform pick. *(Revised 2026-11-09: Sounds now also needs Hearing —
+see the next section.)*
+
+## Start screen: what × how (2026-11-09)
+
+**Why.** Sounds ignored Hearing, so turning Hearing off (no headphones, a quiet room) still played audio. Making
+Sounds need Hearing fixed that, but Hearing also turns on audio *word* questions and there was no way to switch
+words off, so Sounds could no longer be practised alone. The cause was that word questions had no toggle of their
+own: they ran whenever Reading or Hearing was on. The user chose to add one.
+
+**Three rows**, all on by default:
+
+- **What to practise:** Words · Sentences · Sounds: the material.
+- **How to practise:** Reading · Hearing · Writing: the way it reaches you.
+- **Show in:** Pinyin · Characters: the scripts, with the v1 asymmetry unchanged.
+
+| Kind | Runs when |
+|---|---|
+| word (v1 directions) | Words **and** (Reading or Hearing) **and** (Pinyin or Characters); Reading gives the text directions, Hearing the audio ones |
+| write | Words **and** Writing **and** Characters, and at least one selected word has stroke data for all its characters |
+| sentence | Sentences **and** Reading (there is no sentence audio) **and** (Pinyin or Characters) **and** at least one selected lesson has a sentence file |
+| sound | Sounds **and** Hearing **and** Pinyin, and there is audio |
+
+So Sounds + Hearing is sounds only, Words + Hearing is listening to words only, and Hearing off means no audio
+plays as a question. (Write questions still offer "Hear it" as an optional hint when Hearing is on.)
+
+**Greying and the note.** A toggle that is on but feeds no question that can run is greyed. The line under the
+toggles says what it needs: "Words needs Reading, Hearing or Writing", "Sentences needs Reading", "Sounds needs
+Hearing and Pinyin", "Reading needs Words or Sentences", "Hearing needs Words or Sounds", "Writing needs Words and
+Characters" (each listing only what is missing). When nothing can run, one line says what to do, in this order:
+"Pick pinyin, characters, or both.", "Pick words, sentences or sounds.", "Pick at least one way to practise.",
+else "No questions available with these settings." The needs are not appended after a "Pick …" line, which
+already says what to do.
+
+**Practice mode** hides the What and How rows. The vocabulary table is words only, and every row has its own play
+button. Only *Show in* stays, choosing the columns.
 
 **Out of scope.** Tone-change (sandhi) questions, two-syllable tone pairs, and Bopomofo: the first two need
 connected speech the corpus does not have; Bopomofo waits on whether the course uses it.

@@ -20,20 +20,22 @@ Open the link. Lessons load automatically — there is nothing to install, sign 
 
 Pick one or more **lessons**. **Clear** / **All** beside the chips selects or deselects every lesson at once.
 
-**Seven toggles**, all on to start with, choose what a session drills:
+**Eight toggles in three rows**, all on to start with, choose what a session drills:
 
-| Toggle | Effect |
-|---|---|
-| **Reading** | word questions shown as text |
-| **Hearing** | word questions played as audio |
-| **Writing** | draw the word yourself (needs Characters) |
-| **Pinyin** | unlocks pinyin ↔ english, and shows sentences in pinyin |
-| **Characters** | unlocks character ↔ english *and* character ↔ pinyin, and shows sentences in characters |
-| **Sentences** | the selected lessons' sentences: word order and fill-the-gap (needs Reading) |
-| **Sounds** | single syllables by ear: which tone, which of several look-alike syllables (needs Hearing and Pinyin) |
+| Row | Toggle | Effect |
+|---|---|---|
+| *What to practise* | **Words** | the lessons' words |
+| | **Sentences** | the lessons' sentences: word order and fill-the-gap (read only) |
+| | **Sounds** | single syllables by ear: which tone, which of several look-alike syllables (heard only, answered in pinyin) |
+| *How to practise* | **Reading** | words and sentences shown as text |
+| | **Hearing** | words and sounds played as audio |
+| | **Writing** | draw the word yourself (needs Characters) |
+| *Show in* | **Pinyin** | unlocks pinyin ↔ english, and shows sentences in pinyin |
+| | **Characters** | unlocks character ↔ english *and* character ↔ pinyin, and shows sentences in characters |
 
-Turning **Hearing** off removes every question that plays audio, Sounds included, and turning **Reading** off
-removes the sentences. A toggle that is on but can't run greys, and the line under the toggles says what it needs.
+What runs is each *what* with each *how* that fits it: Sounds + Hearing gives sounds only, Words + Hearing gives
+listening to words only, and Hearing off means no audio at all. A toggle that is on but feeds nothing greys, and
+the line under the toggles says what it needs. Practice mode keeps only the *Show in* row, for its columns.
 
 A session mixes four kinds of question, each about equally often: **word** questions (the
 multiple choice above), **write** questions, **sentence** questions and **sound** questions.
