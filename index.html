@@ -131,7 +131,7 @@
 <main>
 
 <header>
-  <p class="kicker">Workshop 1 · Project 1 — a web app</p>
+  <p class="kicker">Workshop 1 · Project 1: a web app</p>
   <h1>Huayu Pocket</h1>
   <p class="lede">A drill app for learning Taiwanese Mandarin from zero: characters, pinyin, listening,
     writing and sentences, on a phone, for a spare five minutes or a long study block.</p>
@@ -144,7 +144,7 @@
 
 <div class="shots">
   <figure>
-    <img src="assets/start.png" alt="The start screen: a Test/Practice switch, six lesson chips, and three rows of toggles — what to practise (Words, Sentences, Sounds), how (Reading, Hearing, Writing) and show in (Pinyin, Characters)." loading="lazy">
+    <img src="assets/start.png" alt="The start screen: a Test/Practice switch, six lesson chips, and three rows of toggles: what to practise (Words, Sentences, Sounds), how (Reading, Hearing, Writing) and show in (Pinyin, Characters)." loading="lazy">
     <figcaption>Pick lessons and what to drill</figcaption>
   </figure>
   <figure>
@@ -155,29 +155,29 @@
 
 <h2>What it is, and why</h2>
 <p>Huayu Pocket is for students learning Taiwanese Mandarin from zero with the textbook
-  <span class="zh">新版實用視聽華語</span> (<i>Practical Audio-Visual Chinese</i>), vol. 1, and follows the book.
+  <span class="zh">新版實用視聽華語</span> (<i>Practical Audio-Visual Chinese</i>), vol. 1.
   It gathers in one place what such a course asks for: recognising and recalling characters, translating
-  both ways, hearing a word and knowing it — and pinyin, including the parts that don't sound the way they
-  look (<i>yu</i> is always the ü sound; <i>iu</i> is short for <i>iou</i>). Questions keep coming until
-  you stop, so it fits a spare five minutes as well as a long study block.</p>
+  both ways, hearing a word and knowing it, and pinyin, including the parts that don't sound the way they
+  look (<i>yu</i> is always the ü sound; <i>iu</i> is short for <i>iou</i>). With its two modes, a quiz and
+  a vocabulary table, it suits a spare five minutes as well as a long study session.</p>
 <p>The interesting part is that a language drill can be <em>wrong</em> in ways that are invisible
-  to a beginner — which is exactly who uses it. A wrong tone mark, a simplified character, a recording
+  to a beginner, which is exactly who uses it. A wrong tone mark, a simplified character, a recording
   with a mainland accent: the learner can't catch any of these, and drills the mistake.</p>
 
 <h2>What it does</h2>
-<p>Two modes. <b>Test</b> is the quiz; <b>Practice</b> lists the selected lessons as a vocabulary table,
+<p>Two modes. <b>Test</b> is the quiz, and its questions keep coming until you stop; <b>Practice</b> lists the selected lessons as a vocabulary table,
   every row tappable to hear it, with a pencil button that shows how each character is written. Test mixes
-  four kinds of question — word, write, sentence and sound — each picked about equally often:</p>
+  four kinds of question (word, write, sentence and sound), each picked about equally often:</p>
 <ul class="kinds">
-  <li><b>Word</b> — multiple choice between character, pinyin and English, in eight directions, including
+  <li><b>Word</b>: multiple choice between character, pinyin and English, in eight directions, including
     two by ear: hear a word, pick its pinyin or characters.</li>
-  <li><b>Write</b> — see the meaning and pinyin, draw the word with a finger, stroke by stroke, with no
+  <li><b>Write</b>: see the meaning and pinyin, draw the word with a finger, stroke by stroke, with no
     outline to trace. A stroke in the wrong order or direction is refused and counted.</li>
-  <li><b>Order</b> — the English sentence, and its Chinese words as shuffled tiles to tap into place. This
+  <li><b>Order</b>: the English sentence, and its Chinese words as shuffled tiles to tap into place. This
     is where grammar gets practised: knowing every word of a sentence is not knowing where 很 goes.</li>
-  <li><b>Gap</b> — the sentence with one word missing, and four options that all fit the grammar of the
+  <li><b>Gap</b>: the sentence with one word missing, and four options that all fit the grammar of the
     slot, so only the meaning of the English decides. Order and Gap are the two sentence questions.</li>
-  <li><b>Sound</b> — hear one syllable and pick it among four that differ from it in exactly one thing:
+  <li><b>Sound</b>: hear one syllable and pick it among four that differ from it in exactly one thing:
     its tone, or one look-alike sound (<i>j/q/x</i>, <i>an/ang</i>, <i>yú/yóu/wú</i>…). After answering,
     every option plays when tapped, so the near miss can be heard beside the answer.</li>
 </ul>
@@ -212,7 +212,7 @@
 <h3>One static page</h3>
 <p>The whole app is <code>app/index.html</code>: no backend, no build step, no framework, nothing fetched
   from a third-party server. Lessons are CSV files, one per textbook lesson, loaded and merged when the page
-  opens. Nothing is saved — deliberately. Progress tracking was designed and then cut: the only storage a
+  opens. Nothing is saved, deliberately. Progress tracking was designed and then cut: the only storage a
   static page has is the browser's, which iOS wipes for sites you haven't opened in a week. A review
   schedule built on that would silently lose your history, which is worse than not pretending to have one.</p>
 
@@ -220,7 +220,7 @@
 <p>A lesson file holds only facts: characters, pinyin, meaning. Every question and every wrong option is
   built when it's shown, under rules that each close a way to answer without knowing Chinese:</p>
 <ul>
-  <li>Wrong options have the <b>same length</b> as the answer — a two-character answer among one-character
+  <li>Wrong options have the <b>same length</b> as the answer: a two-character answer among one-character
     options gives itself away.</li>
   <li><b>Homophones</b> (他 and 她 are both <i>tā</i>) are both kept, since telling them apart is worth
     drilling, but never offered together when the question is asked by sound.</li>
@@ -230,7 +230,7 @@
 </ul>
 
 <h3>Real Taiwanese recordings</h3>
-<p>The audio is Taiwan's Ministry of Education dictionary recordings — real human speech at the ROC
+<p>The audio is Taiwan's Ministry of Education dictionary recordings: real human speech at the ROC
   standard, not text-to-speech, which has no Taiwanese voice. There is one file per syllable, and a word
   plays its syllables in sequence. Each file is a nine-second dictionary entry whose licence forbids
   cutting it, so the files are never trimmed: the app decodes each one, finds where the spoken syllable
@@ -240,14 +240,14 @@
 <p>Word listening lets a rough impression of the sound pass, because its wrong options are other words that
   differ in several ways at once. Sounds is the textbook's pronunciation drill instead, built from the whole
   recording set rather than the lessons. Each syllable is split into initial, final and tone, with the
-  spelling rules undone first — <i>yu</i> is ü, <i>you</i> is <i>iou</i>, <i>wei</i> is <i>uei</i> — and
+  spelling rules undone first (<i>yu</i> is ü, <i>you</i> is <i>iou</i>, <i>wei</i> is <i>uei</i>), and
   its wrong options are the recorded syllables one confusable step away. Every option is a real recording,
   so 762 syllables have enough neighbours to be asked.</p>
 
 <h3>Writing</h3>
 <p>Characters are vector outlines from <a href="https://hanziwriter.org/">Hanzi Writer</a>, stored in the
   repository so the app keeps working without anyone else's server. Its quiz mode grades each stroke the
-  learner draws against the next expected one — order, direction, start and end — with the outline hidden,
+  learner draws against the next expected one (order, direction, start and end), with the outline hidden,
   so it is recall and not tracing.</p>
 
 <h3>Content that a program checks</h3>
@@ -259,20 +259,20 @@
   every commit and on GitHub, and is itself tested against 35 deliberately broken files, one per rule.</p>
 
 <h2>How it was built</h2>
-<p>With Claude Code, following the course's AI method — and the review steps caught real mistakes every
+<p>With Claude Code, following the course's AI method, and the review steps caught real mistakes every
   time.</p>
 <ol class="steps">
-  <li><b>Vision</b> — what the app had to be: short sessions on a phone, Taiwanese not mainland, nothing to set up.</li>
-  <li><b>Specification and plan</b> — <code>SPEC.md</code> and <code>PLAN.md</code>, each task with a test
+  <li><b>Vision</b>: what the app had to be: short sessions on a phone, Taiwanese not mainland, nothing to set up.</li>
+  <li><b>Specification and plan</b>: <code>SPEC.md</code> and <code>PLAN.md</code>, each task with a test
     that says what “done” means.</li>
-  <li><b>Independent review</b> — a fresh Claude session that hadn't written the plan, asked only for
+  <li><b>Independent review</b>: a fresh Claude session that hadn't written the plan, asked only for
     flaws. On the writing/sentences plan it found 14, among them a calibration test that could not
     actually choose the grading tolerance, and example sentences that broke their own vocabulary rule.
     A second review read the 73 generated sentences as a native speaker would and found word orders that
     would have marked right answers wrong.</li>
-  <li><b>Code</b> — task by task, with independent pieces built in parallel by subagents (the validator
+  <li><b>Code</b>: task by task, with independent pieces built in parallel by subagents (the validator
     alongside the app; the six lessons' sentences at once), each commit saying why.</li>
-  <li><b>Test and verify</b> — below, and on a phone.</li>
+  <li><b>Test and verify</b>: below, and on a phone.</li>
 </ol>
 
 <h2>What was verified</h2>
@@ -308,7 +308,7 @@
 
 <h2>Limits, and what's next</h2>
 <ul>
-  <li>Nothing is saved between sessions, by design (above) — until there's real storage, there's no
+  <li>Nothing is saved between sessions, by design (above); until there's real storage, there's no
     spaced repetition.</li>
   <li>16 syllables were never recorded by the Ministry, including <span class="zh">我</span> <i>wǒ</i>, so a
     few words are reading-only; and whole sentences have no audio, since syllables read in isolation
