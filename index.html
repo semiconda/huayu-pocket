@@ -98,6 +98,8 @@
   th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
   th { color: var(--muted); font-weight: 600; font-size: 0.85rem; }
   td.num { white-space: nowrap; }
+  /* The check is the sentence to read, so it gets the widest column; Measured wraps beside it. */
+  th:first-child, td:first-child { width: 42%; }
   td.ok { color: var(--good); white-space: nowrap; }
   td.pending { color: var(--muted); white-space: nowrap; }
   /* On a phone, four columns leave the check one word wide: each row becomes a small card. */
@@ -106,7 +108,7 @@
     table, tbody, tr, td { display: block; }
     tr { padding: 12px 0; border-bottom: 1px solid var(--border); }
     td { border: 0; padding: 2px 0; white-space: normal !important; }
-    td:first-child { color: var(--text); font-weight: 600; margin-bottom: 4px; }
+    td:first-child { color: var(--text); font-weight: 600; margin-bottom: 4px; width: auto; }
     td[data-label]::before { content: attr(data-label) " "; color: var(--muted); }
     td.ok, td.pending { display: none; }
   }
@@ -283,23 +285,23 @@
   <thead><tr><th>Check</th><th>Predicted</th><th>Measured</th><th></th></tr></thead>
   <tbody>
     <tr><td>Same word, same direction, shown again: wrong options identical to last time</td>
-      <td class="num" data-label="Predicted:">0</td><td class="num" data-label="Measured:">0 in 18,464 repeat showings (20,000 questions)</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">0</td><td data-label="Measured:">0 in 18,464 repeat showings (20,000 questions)</td><td class="ok">✓</td></tr>
     <tr><td>Every word asked once before any repeats</td>
-      <td class="num" data-label="Predicted:">179 different</td><td class="num" data-label="Measured:">first 179 questions: 179 different words</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">179 different</td><td data-label="Measured:">first 179 questions: 179 different words</td><td class="ok">✓</td></tr>
     <tr><td>Character answers whose four options all have the answer's length</td>
-      <td class="num" data-label="Predicted:">all</td><td class="num" data-label="Measured:">6,776 of 6,776</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">all</td><td data-label="Measured:">6,776 of 6,776</td><td class="ok">✓</td></tr>
     <tr><td>Word order: tiles dealt already in a correct order</td>
-      <td class="num" data-label="Predicted:">0</td><td class="num" data-label="Measured:">0 in 200 deals of one sentence; 0 in every deal over 8,000 questions drawing on all 73 sentences, with characters and with pinyin only</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">0</td><td data-label="Measured:">0 in 200 deals of one sentence; 0 in every deal over 8,000 questions drawing on all 73 sentences, with characters and with pinyin only</td><td class="ok">✓</td></tr>
     <tr><td>Gap options are exactly the four written for it</td>
-      <td class="num" data-label="Predicted:">20 of 20</td><td class="num" data-label="Measured:">20 of 20</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">20 of 20</td><td data-label="Measured:">20 of 20</td><td class="ok">✓</td></tr>
     <tr><td>Writing a word stroke by stroke, correctly</td>
-      <td class="num" data-label="Predicted:">“Clean”</td><td class="num" data-label="Measured:">“Clean” for 你, 先生, 美國, 你們, 謝謝</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">“Clean”</td><td data-label="Measured:">“Clean” for 你, 先生, 美國, 你們, 謝謝</td><td class="ok">✓</td></tr>
     <tr><td>大 with its first stroke backwards and its second drawn first</td>
-      <td class="num" data-label="Predicted:">2 mistakes</td><td class="num" data-label="Measured:">“2 mistakes”</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">2 mistakes</td><td data-label="Measured:">“2 mistakes”</td><td class="ok">✓</td></tr>
     <tr><td>Validator: each broken file caught by its own rule, valid ones pass</td>
-      <td class="num" data-label="Predicted:">35 of 35</td><td class="num" data-label="Measured:">35 of 35</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">35 of 35</td><td data-label="Measured:">35 of 35</td><td class="ok">✓</td></tr>
     <tr><td>Sound questions: four different options every time</td>
-      <td class="num" data-label="Predicted:">400 of 400</td><td class="num" data-label="Measured:">400 of 400</td><td class="ok">✓</td></tr>
+      <td class="num" data-label="Predicted:">400 of 400</td><td data-label="Measured:">400 of 400</td><td class="ok">✓</td></tr>
   </tbody>
 </table>
 </div>
