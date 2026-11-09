@@ -8,7 +8,7 @@ memory is used here, deliberately, so that any fresh session or device can pick 
 asked for it to be updated in parallel with the code. Whenever a change alters what the app does, how lessons are
 added, or how validation works, update `README.md` in the same commit — alongside `SPEC.md`/`PLAN.md`.
 
-## Current state (2026-11-08)
+## Current state (2026-11-09)
 
 - **Live, tested on a phone including audio:** https://semiconda.github.io/huayu-pocket/app/
 - **`app/index.html` is the whole app**: one file, no build step, no backend, no dependencies. Three screens:
@@ -149,6 +149,15 @@ Learning Taiwanese Mandarin from zero. The app is for:
 
 ## Open items
 
+- **Start screen, 2026-11-09 — what was decided.** Rows *What to practise* (Words · Sentences · Sounds) above *How
+  to practise* (Reading · Hearing · Writing) above *Show in* (Pinyin · Characters); the user chose adding the
+  Words toggle, and asked about putting How first — answered with reasons to keep What first, left as is.
+  "Show in" is Claude's label from the option preview the user picked; they may rename it. On-but-idle toggles are
+  a dashed accent outline; Sounds runs with no lesson picked. Not yet seen on a phone.
+- **Start screen — raised, not decided** (don't change unasked): the Mode switch has Practice on the left though
+  Test is the default; the top status line ("179 words loaded…") doesn't mention the 762 sounds; nothing on the
+  screen says the lesson chips don't affect Sounds.
+
 - **v3 Sounds checked on a phone (2026-11-08)** — works; the project page now describes it. **v2 is complete (2026-11-03).** The user checked writing on their phone and kept `WRITE_LENIENCY` at the
   library default 1.0 (plan task 8), and read the 73 sentences of lessons 1-6 (plan task 10), which a separate
   session had reviewed first (fixes: three missing word orders, 東西 → `dōngxi`). Their only change: no
@@ -211,6 +220,16 @@ PYTHONPATH=/some/scratch/sel PYTHONIOENCODING=utf-8 python your_script.py
 Headless Chrome at `--window-size=390,844` is a fair phone proxy, and `save_screenshot` is worth using — the
 first-lesson heading being glued to the status line, and a chips label that read ambiguously, were both invisible
 in the DOM and obvious in a screenshot. Audio can't be verified this way; that still needs a real device.
+
+**On the user's Windows machine (2026-11-09)** there is no Chrome and no `msedgedriver`, so Selenium fails. What
+worked: start Edge (`C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe --headless=new
+--remote-debugging-port=9333 --user-data-dir=<scratch>`), read the page's WebSocket URL from
+`http://localhost:9333/json`, and talk DevTools with the installed `websockets` package: `Page.navigate`,
+`Runtime.evaluate` (with `awaitPromise`) to click and read, `Page.captureScreenshot`. For a true phone width use
+`Emulation.setDeviceMetricsOverride` (`width: 390, mobile: true`), which, unlike `--window-size`, does go below
+~500 px. Navigate explicitly after connecting; the first tab is not the page. To screenshot part of a page, clip
+with `captureBeyondViewport` and **don't scroll first**, or the clip comes out blank. `assets/start.png` was made
+this way: width 346, scale 520/346, clipped from the top to 16 px below Start.
 
 **The scripts are deliberately not committed.** They were written, used, and dropped. They assert exact counts
 (118 words, 10 silent rows, 4 lesson headings — all stale now), so adding a lesson — the main ongoing activity here — breaks them
