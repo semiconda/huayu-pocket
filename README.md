@@ -29,8 +29,11 @@ Pick one or more **lessons**. **Clear** / **All** beside the chips selects or de
 | **Writing** | draw the word yourself (needs Characters) |
 | **Pinyin** | unlocks pinyin ↔ english, and shows sentences in pinyin |
 | **Characters** | unlocks character ↔ english *and* character ↔ pinyin, and shows sentences in characters |
-| **Sentences** | the selected lessons' sentences: word order and fill-the-gap |
-| **Sounds** | single syllables by ear: which tone, which of several look-alike syllables (needs Pinyin) |
+| **Sentences** | the selected lessons' sentences: word order and fill-the-gap (needs Reading) |
+| **Sounds** | single syllables by ear: which tone, which of several look-alike syllables (needs Hearing and Pinyin) |
+
+Turning **Hearing** off removes every question that plays audio, Sounds included, and turning **Reading** off
+removes the sentences. A toggle that is on but can't run greys, and the line under the toggles says what it needs.
 
 A session mixes four kinds of question, each about equally often: **word** questions (the
 multiple choice above), **write** questions, **sentence** questions and **sound** questions.

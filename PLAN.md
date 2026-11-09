@@ -287,3 +287,8 @@ Small enough to build in one pass; the behaviour is in `SPEC.md` under "v3 — S
 questions available with these settings. — Sounds needs Pinyin"; 400 consecutive questions all had four distinct
 options, about 60/40 tone/syllable; tone options come out in tone order; tapping an option after answering leaves
 the marking unchanged. Audio itself needs a phone: on 2026-11-08 the user played it on theirs, and it works.
+
+**2026-11-09, toggles follow what × how.** `soundRuns()` also requires Hearing and `sentenceRuns()` Reading, so
+turning a way off removes every kind that uses it. The idle note is built by a `need(on, kind, …prereqs)` helper:
+"Writing needs Characters", "Sentences needs Reading", "Sounds needs Hearing and Pinyin". "Pick at least one way
+to practise" now counts only Reading, Hearing and Writing as ways.

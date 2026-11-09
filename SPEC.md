@@ -307,7 +307,7 @@ with the note saying why — the same treatment v1 gives Hearing without audio:
 |---|---|
 | word (v1 directions) | (Reading or Hearing) and (Pinyin or Characters), as in v1 |
 | write | Writing **and** Characters (there is no writing pinyin), and at least one selected word has stroke data for all its characters |
-| sentence | Sentences **and** (Pinyin or Characters) **and** at least one selected lesson has a sentence file. Never for a hand-loaded CSV: Sentences is disabled there |
+| sentence | Sentences **and** Reading (sentences are read; there is no sentence audio) **and** (Pinyin or Characters) **and** at least one selected lesson has a sentence file. Never for a hand-loaded CSV: Sentences is disabled there |
 
 **Start** is enabled when at least one kind runs. v1's "Pick reading, hearing, or both" becomes "Pick at least one
 way to practise", shown only when no kind runs. The start-screen count reports each running kind separately:
@@ -548,7 +548,12 @@ before any repeats, as for the other kinds.
 **Controls.** A **Sounds** toggle in *What to practise*, on by default like the others. It needs **Pinyin** (the
 answers are pinyin), as Writing needs Characters; with Pinyin off it greys and the note says "Sounds needs
 Pinyin". It is disabled when there is no audio, like Hearing, and hidden in practice mode, like Sentences. It
-ignores Reading and Hearing: a sound question is audio by nature. The start-screen count adds "N sounds".
+also needs **Hearing**: a sound question is audio by nature, so someone who turns Hearing off (no headphones, a
+quiet room) must get no audio at all; with Hearing off it greys and the note says "Sounds needs Hearing" (or
+"Sounds needs Hearing and Pinyin"). *(Revised 2026-11-09; at first Sounds ignored Reading and Hearing, which let
+audio play with Hearing off. Sentences was given the matching rule, needing Reading.)* The rows read as *what*
+(the material) × *how* (the way it reaches you): each kind in *What to practise* runs only with the way it can be
+practised. The start-screen count adds "N sounds".
 Mixing is unchanged — one more kind in the uniform pick.
 
 **Out of scope.** Tone-change (sandhi) questions, two-syllable tone pairs, and Bopomofo: the first two need

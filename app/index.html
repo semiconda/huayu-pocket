@@ -1367,9 +1367,11 @@
     const wordRuns = () => allowedDirectionKeys().size > 0 && countAvailable() > 0;
     // There is no writing pinyin, so Writing needs Characters whatever else is on.
     const writeRuns = () => toggles.writing && toggles.characters && writable.length > 0;
-    const sentenceRuns = () => toggles.sentences && anyScript() && sentences.length > 0;
+    // Each kind also needs the way it is practised, so turning a way off really removes it:
+    // sentences are read (there is no sentence audio), sounds are heard.
+    const sentenceRuns = () => toggles.sentences && toggles.reading && anyScript() && sentences.length > 0;
     // A syllable is answered in pinyin, so Sounds needs Pinyin as Writing needs Characters.
-    const soundRuns = () => toggles.sounds && toggles.pinyin && soundBank.length > 0;
+    const soundRuns = () => toggles.sounds && toggles.hearing && toggles.pinyin && soundBank.length > 0;
 
     // A kind first, uniformly among those that can run, then a question within it — so
     // turning Sentences on gives sentences a fair share however many words are selected.
@@ -1703,16 +1705,20 @@
 
     // Why a toggle that is on is doing nothing, so its grey state is never a mystery.
     const idle = [];
-    if (toggles.writing && !toggles.characters) idle.push("Writing needs Characters");
-    if (toggles.sounds && !toggles.pinyin) idle.push("Sounds needs Pinyin");
+    const need = (on, kind, ...prereqs) => {
+      const missing = prereqs.filter(([, met]) => !met).map(([name]) => name);
+      if (on && missing.length) idle.push(kind + " needs " + missing.join(" and "));
+    };
+    need(toggles.writing, "Writing", ["Characters", toggles.characters]);
+    need(toggles.sentences, "Sentences", ["Reading", toggles.reading]);
+    need(toggles.sounds, "Sounds", ["Hearing", toggles.hearing], ["Pinyin", toggles.pinyin]);
     if (toggles.sentences && quiz.sentenceCount === 0) idle.push("no sentences in these lessons yet");
 
     let note;
     if (!toggles.pinyin && !toggles.characters) {
       note = "Pick pinyin, characters, or both.";
     } else if (!runs) {
-      const anyWay = toggles.reading || toggles.hearing || toggles.writing || toggles.sentences ||
-        toggles.sounds;
+      const anyWay = toggles.reading || toggles.hearing || toggles.writing;
       note = anyWay ? "No questions available with these settings." : "Pick at least one way to practise.";
     } else {
       note = parts.join(" · ");
