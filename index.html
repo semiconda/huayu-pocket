@@ -211,9 +211,11 @@
 <h3>One static page</h3>
 <p>The whole app is <code>app/index.html</code>: no backend, no build step, no framework, nothing fetched
   from a third-party server. Lessons are CSV files, one per textbook lesson, loaded and merged when the page
-  opens. Nothing is saved, deliberately. Progress tracking was designed and then cut: the only storage a
-  static page has is the browser's, which iOS wipes for sites you haven't opened in a week. A review
-  schedule built on that would silently lose your history, which is worse than not pretending to have one.</p>
+  opens. Nothing is saved.</p>
+<p>New lessons can be added by following the guide in
+  <a href="https://github.com/semiconda/huayu-pocket/blob/main/app/decks/README.md"><code>app/decks/README.md</code></a>.
+  An AI given that guide and the textbook lesson can write the new lesson file, and a validator checks it
+  before it goes live.</p>
 
 <h3>Questions are generated, not stored</h3>
 <p>A lesson file holds only facts: characters, pinyin, meaning. Every question and every wrong option is
