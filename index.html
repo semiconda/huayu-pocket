@@ -134,7 +134,7 @@
   <p class="kicker">Workshop 1 · Project 1 — a web app</p>
   <h1>Huayu Pocket</h1>
   <p class="lede">A drill app for learning Taiwanese Mandarin from zero: characters, pinyin, listening,
-    writing and sentences, in quizzes short enough for a spare five minutes on a phone.</p>
+    writing and sentences, on a phone, for a spare five minutes or a long study block.</p>
   <p class="byline">By semiconda · TIGP Basic Skills for Experimentalists, 2026</p>
   <div class="actions">
     <a class="btn primary" href="app/">Open the app</a>
@@ -154,16 +154,15 @@
 </div>
 
 <h2>What it is, and why</h2>
-<p>I'm learning Taiwanese Mandarin from zero at NTU, from the textbook
-  <span class="zh">新版實用視聽華語</span> (<i>Practical Audio-Visual Chinese</i>), vol. 1. I wanted one place
-  to drill what the course asks for: recognising and recalling characters, translating both ways,
-  hearing a word and knowing it — and pinyin, including the parts that don't sound the way they look (<i>yu</i> is always the ü sound; <i>iu</i> is short for
-  <i>iou</i>). And in sessions short enough for a spare five minutes, not long study blocks.</p>
+<p>Huayu Pocket is for students learning Taiwanese Mandarin from zero with the textbook
+  <span class="zh">新版實用視聽華語</span> (<i>Practical Audio-Visual Chinese</i>), vol. 1, and follows the book.
+  It gathers in one place what such a course asks for: recognising and recalling characters, translating
+  both ways, hearing a word and knowing it — and pinyin, including the parts that don't sound the way they
+  look (<i>yu</i> is always the ü sound; <i>iu</i> is short for <i>iou</i>). Questions keep coming until
+  you stop, so it fits a spare five minutes as well as a long study block.</p>
 <p>The interesting part is that a language drill can be <em>wrong</em> in ways that are invisible
   to a beginner — which is exactly who uses it. A wrong tone mark, a simplified character, a recording
-  with a mainland accent, a multiple-choice question whose answer can be spotted by its length: the
-  learner can't catch any of these, and drills the mistake. So most of this project is about making the
-  content checkably right, not about the screens.</p>
+  with a mainland accent: the learner can't catch any of these, and drills the mistake.</p>
 
 <h2>What it does</h2>
 <p>Two modes. <b>Test</b> is the quiz; <b>Practice</b> lists the selected lessons as a vocabulary table,
@@ -263,7 +262,7 @@
 <p>With Claude Code, following the course's AI method — and the review steps caught real mistakes every
   time.</p>
 <ol class="steps">
-  <li><b>Vision</b> — what I needed: short sessions on a phone, Taiwanese not mainland, nothing to set up.</li>
+  <li><b>Vision</b> — what the app had to be: short sessions on a phone, Taiwanese not mainland, nothing to set up.</li>
   <li><b>Specification and plan</b> — <code>SPEC.md</code> and <code>PLAN.md</code>, each task with a test
     that says what “done” means.</li>
   <li><b>Independent review</b> — a fresh Claude session that hadn't written the plan, asked only for
@@ -273,7 +272,7 @@
     would have marked right answers wrong.</li>
   <li><b>Code</b> — task by task, with independent pieces built in parallel by subagents (the validator
     alongside the app; the six lessons' sentences at once), each commit saying why.</li>
-  <li><b>Test and verify</b> — below, and on my phone.</li>
+  <li><b>Test and verify</b> — below, and on a phone.</li>
 </ol>
 
 <h2>What was verified</h2>
@@ -304,7 +303,7 @@
   </tbody>
 </table>
 </div>
-<p>Audio can't be checked headless, so the rest was done on my phone: writing with a finger is graded
+<p>Audio can't be checked headless, so the rest was done on a phone: writing with a finger is graded
   right at the default tolerance, and the recordings, including Sounds, play.</p>
 
 <h2>Limits, and what's next</h2>
