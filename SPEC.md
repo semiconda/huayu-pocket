@@ -586,6 +586,15 @@ Characters" (each listing only what is missing). When nothing can run, one line 
 else "No questions available with these settings." The needs are not appended after a "Pick …" line, which
 already says what to do.
 
+**Three looks.** On is filled, off is grey, and on-but-idle is an accent-coloured dashed outline. The earlier
+idle grey was nearly the off grey, so a toggle that was on looked off. The note has `role="status"`, so screen
+readers announce it as it changes.
+
+**No lesson picked.** Sounds does not use the lessons, so in test mode clearing every lesson leaves Sounds
+runnable. The status line says "No lesson picked: words and sentences need one, Sounds doesn't.", and the note
+adds "Words needs a lesson" / "Sentences needs a lesson" for those that are on. Practice mode still says "Pick at
+least one lesson." (Before, the note went blank and Start was disabled even with only Sounds on.)
+
 **Practice mode** hides the What and How rows. The vocabulary table is words only, and every row has its own play
 button. Only *Show in* stays, choosing the columns.
 

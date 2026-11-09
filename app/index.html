@@ -647,10 +647,13 @@
   }
   /* On, but with nothing to do under the current settings — Writing without Characters, or
      Sentences for lessons that have none yet. Still pressable, so it can be switched off. */
+  /* On, but feeding no question: outlined in the accent, so it reads as neither on (filled)
+     nor off (grey). */
   .toggle.on.inert {
-    background: #2a3140;
-    border-color: var(--border);
-    color: var(--muted);
+    background: transparent;
+    border: 1px dashed var(--accent);
+    color: var(--accent);
+    font-weight: 400;
   }
 
   .prompt-sub {
@@ -795,7 +798,7 @@
           <button type="button" class="toggle on" data-toggle="pinyin">Pinyin</button>
           <button type="button" class="toggle on" data-toggle="characters">Characters</button>
         </div>
-        <div id="toggle-note" class="status"></div>
+        <div id="toggle-note" class="status" role="status"></div>
       </div>
 
       <button id="start-btn" class="primary-btn" disabled>Start</button>
@@ -1400,6 +1403,7 @@
     return {
       validDirections, nextQuestion, audioCount, countAvailable,
       wordRuns, writeRuns, sentenceRuns, soundRuns,
+      itemCount: items.length,
       writeCount: writable.length, sentenceCount: sentences.length, soundCount: soundBank.length,
     };
   }
@@ -1585,12 +1589,13 @@
     lessonAllBtn.textContent = chosen.length === bundledDecks.length ? "Clear" : "All";
 
     if (chosen.length === 0) {
-      quiz = null;
+      // Sounds draws on the whole recording set, not the lessons, so it can still run.
+      quiz = createQuizState([], audioIndex, []);
       practiceGroups = [];
       lastLoad = null;
-      startBtn.disabled = true;
-      toggleNote.textContent = "";
-      setStatus("Pick at least one lesson.", true);
+      setStatus(mode === "practice" ? "Pick at least one lesson."
+        : "No lesson picked: words and sentences need one, Sounds doesn't.", mode === "practice");
+      refreshToggles();
       return;
     }
 
@@ -1731,7 +1736,12 @@
     need(toggles.words, "Words", ["Reading, Hearing or Writing", anyWay]);
     need(toggles.sentences, "Sentences", ["Reading", toggles.reading]);
     need(toggles.sounds, "Sounds", ["Hearing", toggles.hearing], ["Pinyin", toggles.pinyin]);
-    if (toggles.sentences && quiz.sentenceCount === 0) idle.push("no sentences in these lessons yet");
+    if (quiz.itemCount === 0) {
+      if (toggles.words) idle.push("Words needs a lesson");
+      if (toggles.sentences) idle.push("Sentences needs a lesson");
+    } else if (toggles.sentences && quiz.sentenceCount === 0) {
+      idle.push("no sentences in these lessons yet");
+    }
     if (toggles.reading && !busy.reading && !toggles.words && !toggles.sentences) {
       idle.push("Reading needs Words or Sentences");
     }
@@ -1775,6 +1785,7 @@
       if (lastLoad) {
         useItems(lastLoad.items, lastLoad.skipped, lastLoad.sourceLabel, lastLoad.groups, lastLoad.sentences);
       }
+      else if (bundledDecks.length) applyDeckSelection();   // no lesson picked: its message depends on the mode
       else refreshToggles();
     });
   });

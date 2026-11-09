@@ -305,3 +305,11 @@ sentences · 762 sounds"; Sounds + Hearing + Pinyin alone gives "762 sounds" and
 hear?"; Words + Hearing gives "3 question types · 154 words"; Hearing off drops the sounds and greys Sounds;
 Sounds with Reading and Writing left on greys both with "Reading needs Words or Sentences; Writing needs Words";
 Writing without Characters says "Writing needs Characters"; practice hides What and How.
+
+*UX pass, same day* (phone-width screenshots, 390 px via `Emulation.setDeviceMetricsOverride`): `.toggle.on.inert`
+is now a dashed accent outline, since its old fill (#2a3140) was indistinguishable from off (#232b38).
+`#toggle-note` got `role="status"`. With no lesson picked, `applyDeckSelection()` builds `createQuizState([], …)`
+so Sounds still runs (`itemCount` added to the quiz state for the "needs a lesson" notes); a mode switch with no
+lesson re-runs `applyDeckSelection()` for the right status. Checked: lessons cleared + Sounds/Hearing/Pinyin
+gives "762 sounds" and a playable quiz (two questions, no console errors); all on with no lesson greys Words,
+Sentences, Reading and Writing with "Words needs a lesson; Sentences needs a lesson".

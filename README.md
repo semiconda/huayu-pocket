@@ -34,8 +34,9 @@ Pick one or more **lessons**. **Clear** / **All** beside the chips selects or de
 | | **Characters** | unlocks character ↔ english *and* character ↔ pinyin, and shows sentences in characters |
 
 What runs is each *what* with each *how* that fits it: Sounds + Hearing gives sounds only, Words + Hearing gives
-listening to words only, and Hearing off means no audio at all. A toggle that is on but feeds nothing greys, and
-the line under the toggles says what it needs. Practice mode keeps only the *Show in* row, for its columns.
+listening to words only, and Hearing off means no audio at all. A toggle that is on but feeds nothing shows as a
+dashed outline, and the line under the toggles says what it needs. Sounds doesn't use the lessons, so it still
+runs with no lesson picked. Practice mode keeps only the *Show in* row, for its columns.
 
 A session mixes four kinds of question, each about equally often: **word** questions (the
 multiple choice above), **write** questions, **sentence** questions and **sound** questions.
