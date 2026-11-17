@@ -235,8 +235,8 @@ live site, so **nothing that the current app can't load goes into `manifest.json
 shared files (`manifest.json`, the README page table) are edited afterwards, once, by the main session, so parallel
 writers never conflict.
 
-9. **Write the sentences.** For lesson N: render the SYNTAX PRACTICE pages of the book (`~/Downloads/Practical
-   Audio-Visual Chinese 1 2nd edition.pdf`; find the pages the way the vocabulary pages were found), list the
+9. **Write the sentences.** For lesson N: render the SYNTAX PRACTICE pages of the book (`Practical Audio-Visual
+   Chinese 1 2nd edition.pdf` at the repo root, gitignored; find the pages the way the vocabulary pages were found), list the
    patterns it teaches, and write 8–12 new sentences that use those patterns and only words from lessons 1..N,
    following the spec's rules (names as surname + title; joined pinyin; lowercase). Not copied from the book. Every
    sentence that can carry a gap gets one, with three wrong options that fit the slot grammatically and that the

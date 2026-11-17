@@ -173,7 +173,8 @@ Learning Taiwanese Mandarin from zero. The app is for:
   character `<g>`'s `getScreenCTM()`.
 - **Lessons 7-12.** Lessons 1-6 are done. One or two at a time, following `app/decks/README.md`; see the rhythm
   note above. Needs the textbook PDF, which is gitignored and may not be on the machine you're working from —
-  on the user's Windows machine it is `~/Downloads/Practical Audio-Visual Chinese 1 2nd edition.pdf`.
+  on the user's Windows machine it is `Practical Audio-Visual Chinese 1 2nd edition.pdf` at the repo root, kept out
+  of git by the `*.pdf` rule in `.gitignore`. Never commit it, and never weaken that rule.
 - **The 16 missing syllables stay missing — decided, don't re-propose.** Asked on 2026-10-18 whether to mine
   MOE's 15 GB word-level package to recover `wo3` (我), `che1` (車), `men5` (們) and the rest, the user said no.
   Those words stay reading-only. Note the gap has two distinct causes and that package would only fix the first:
