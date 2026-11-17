@@ -197,7 +197,9 @@ Three traps specific to this book:
   decks, so the measure word was dropped; it is learnable from 一張像片 in the lesson text.
 - **A sub-entry that re-glosses a word already in the decks is worth dropping, not disambiguating.**
   Lesson 6 lists 電視機 "television set" under 照像機, and lesson 3 already teaches 電視 "television".
-  Two options that differ only by "set" make a question a coin toss, which is worse than one word fewer.
+  Two options that differ only by "set" make a question a coin toss, which is worse than one word fewer. A sub-entry that
+  shortens the lesson's own headword is different and is kept: 像機 under 照像機 (lesson 6) is in
+  the deck as `camera (short form)`, because the learner chose to keep everything printed as vocabulary.
 - **Where a lesson's only long word is its title word, expect a length WARN and accept it.** 照像機 is
   the single three-character word in lesson 6; dropping the word the lesson is named after would cost
   more than the warning does. The app falls back to mixed-length options for it.
