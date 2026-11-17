@@ -154,8 +154,9 @@ time, so list every word taken or skipped this way when reporting the lesson.
 | 4 | 58-63 | 98-103 | 104-111 | 93-115 |
 | 5 | 83-87 | 123-127 | 128-132 | 117-134 |
 | 6 | 101-105 | 141-146 | 146-152 | 135-154 |
+| 7 | 121-128 | 161-168 | 168-174 | 155-177 |
 
-Lesson 7's chapter starts at PDF 155 with vocabulary at 161; lesson 8's title page is PDF 178.
+Lesson 8's title page is PDF 178.
 
 For a lesson not in the table, find its VOCABULARY and SYNTAX PRACTICE pages by rendering a few pages after the
 previous lesson's range, then add the row here so the next session doesn't have to search.
@@ -200,6 +201,10 @@ Three traps specific to this book:
   Two options that differ only by "set" make a question a coin toss, which is worse than one word fewer. A sub-entry that
   shortens the lesson's own headword is different and is kept: 像機 under 照像機 (lesson 6) is in
   the deck as `camera (short form)`, because the learner chose to keep everything printed as vocabulary.
+- **Erhua words (兒 as -r) are kept as the book prints them, and stay reading-only.** Lesson 7 has
+  歌兒 `gēr`, 一點兒 `yīdiǎnr`, 畫兒 `huàr`. One syllable covers two characters, so the validator
+  cannot split the pinyin and WARNs, and the corpus has no erhua recordings. Accept both; don't drop
+  the 兒 or invent a syllable to make the tools happy.
 - **Where a lesson's only long word is its title word, expect a length WARN and accept it.** 照像機 is
   the single three-character word in lesson 6; dropping the word the lesson is named after would cost
   more than the warning does. The app falls back to mixed-length options for it.

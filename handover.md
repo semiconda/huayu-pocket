@@ -50,8 +50,8 @@ added, or how validation works, update `README.md` in the same commit — alongs
   Keep doing that.
 
 **Content follows the textbook.** Decks mirror 新版實用視聽華語 (Practical Audio-Visual Chinese) vol. 1 — the
-standard book at Taiwanese university language centres, and the user's course text. Lessons 1-6 are done (`lesson01.csv` 32 words, `lesson02.csv` 28,
-`lesson03.csv` 29, `lesson04.csv` 40, `lesson05.csv` 36, `lesson06.csv` 32 — 197 in total, 173 of them with audio); lessons 7-12 remain. The page-range table is in `app/decks/README.md`.
+standard book at Taiwanese university language centres, and the user's course text. Lessons 1-7 are done (`lesson01.csv` 32 words, `lesson02.csv` 28,
+`lesson03.csv` 29, `lesson04.csv` 40, `lesson05.csv` 36, `lesson06.csv` 32, `lesson07.csv` 42 — 239 in total, 210 of them with audio); lessons 8-12 remain. The page-range table is in `app/decks/README.md`.
 
 The user's chosen rhythm: **one or two lessons at a time, staying a little ahead of their class**, so that the
 format keeps getting corrected by real study rather than by guesswork. Don't batch the remainder unasked. An earlier invented `basics.csv` was retired when lesson 1 landed, because
@@ -155,7 +155,7 @@ Learning Taiwanese Mandarin from zero. The app is for:
   "Show in" is Claude's label from the option preview the user picked; they may rename it. On-but-idle toggles are
   a dashed accent outline; Sounds runs with no lesson picked. Not yet seen on a phone.
 - **Start screen — raised, not decided** (don't change unasked): the Mode switch has Practice on the left though
-  Test is the default; the top status line ("197 words loaded…") doesn't mention the 762 sounds; nothing on the
+  Test is the default; the top status line ("239 words loaded…") doesn't mention the 762 sounds; nothing on the
   screen says the lesson chips don't affect Sounds.
 
 - **Project page (`index.html`), 2026-11-09 — edited with the user, line by line.** Their rules for it:
@@ -171,7 +171,7 @@ Learning Taiwanese Mandarin from zero. The app is for:
   so Hanzi Writer animations never finish there; shim rAF with `setTimeout(16)` in a scratch copy to test them.
   Strokes can be "drawn" by dispatching mouse events along the character data's `medians`, mapped through the
   character `<g>`'s `getScreenCTM()`.
-- **Lessons 7-12.** Lessons 1-6 are done. One or two at a time, following `app/decks/README.md`; see the rhythm
+- **Lessons 8-12.** Lessons 1-7 are done. One or two at a time, following `app/decks/README.md`; see the rhythm
   note above. Needs the textbook PDF, which is gitignored and may not be on the machine you're working from —
   on the user's Windows machine it is `Practical Audio-Visual Chinese 1 2nd edition.pdf` at the repo root, kept out
   of git by the `*.pdf` rule in `.gitignore`. Never commit it, and never weaken that rule.
