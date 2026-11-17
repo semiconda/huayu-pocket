@@ -135,7 +135,16 @@ Needs `pip install pypdf pymupdf`. Write slices and images to a scratch director
 
 **PDF page = printed page + 40** in this edition. Each lesson has a VOCABULARY section; take the
 numbered entries *and their sub-entries* (indented words under an example sentence are vocabulary
-too), continue through SUPPLEMENTARY VOCABULARY, and stop where SYNTAX PRACTICE begins.
+too), and continue through SUPPLEMENTARY VOCABULARY.
+
+**Then read the rest of the chapter**, from the dialogue to the last APPLICATION ACTIVITIES page,
+for words it glosses outside VOCABULARY (starred footnotes, pinyin printed beside a word, labels
+under pictures). Take one only if it belongs to what the lesson teaches *and* the chapter clearly
+expects it to be known. Lesson 4 is about numbers and measure words, so its footnoted measure
+words 份, 輛, 雙, 件, 瓶 and 罐 are in the deck; 漢堡, 可樂, 咖啡 and 蘋果 are only things to count
+in its examples, so they are not, even when the dialogue uses them. The exception is an example word
+the chapter leans on so heavily that leaving it out would be odd. This is a judgement call each
+time, so list every word taken or skipped this way when reporting the lesson.
 
 | lesson | vocabulary, printed | vocabulary, PDF | SYNTAX PRACTICE, PDF |
 |---|---|---|---|

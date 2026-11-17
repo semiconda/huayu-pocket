@@ -51,7 +51,7 @@ added, or how validation works, update `README.md` in the same commit — alongs
 
 **Content follows the textbook.** Decks mirror 新版實用視聽華語 (Practical Audio-Visual Chinese) vol. 1 — the
 standard book at Taiwanese university language centres, and the user's course text. Lessons 1-6 are done (`lesson01.csv` 32 words, `lesson02.csv` 24,
-`lesson03.csv` 29, `lesson04.csv` 34, `lesson05.csv` 34, `lesson06.csv` 27 — 180 in total, 156 of them with audio); lessons 7-12 remain. The page-range table is in `app/decks/README.md`.
+`lesson03.csv` 29, `lesson04.csv` 40, `lesson05.csv` 34, `lesson06.csv` 27 — 186 in total, 162 of them with audio); lessons 7-12 remain. The page-range table is in `app/decks/README.md`.
 
 The user's chosen rhythm: **one or two lessons at a time, staying a little ahead of their class**, so that the
 format keeps getting corrected by real study rather than by guesswork. Don't batch the remainder unasked. An earlier invented `basics.csv` was retired when lesson 1 landed, because
@@ -155,7 +155,7 @@ Learning Taiwanese Mandarin from zero. The app is for:
   "Show in" is Claude's label from the option preview the user picked; they may rename it. On-but-idle toggles are
   a dashed accent outline; Sounds runs with no lesson picked. Not yet seen on a phone.
 - **Start screen — raised, not decided** (don't change unasked): the Mode switch has Practice on the left though
-  Test is the default; the top status line ("180 words loaded…") doesn't mention the 762 sounds; nothing on the
+  Test is the default; the top status line ("186 words loaded…") doesn't mention the 762 sounds; nothing on the
   screen says the lesson chips don't affect Sounds.
 
 - **Project page (`index.html`), 2026-11-09 — edited with the user, line by line.** Their rules for it:
