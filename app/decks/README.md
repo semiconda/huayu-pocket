@@ -146,14 +146,16 @@ in its examples, so they are not, even when the dialogue uses them. The exceptio
 the chapter leans on so heavily that leaving it out would be odd. This is a judgement call each
 time, so list every word taken or skipped this way when reporting the lesson.
 
-| lesson | vocabulary, printed | vocabulary, PDF | SYNTAX PRACTICE, PDF |
-|---|---|---|---|
-| 1 | 6-10 | 46-50 | 50-55 |
-| 2 | 24-28 | 64-68 | 68-70 |
-| 3 | 38-42 | 78-82 | 83-87 |
-| 4 | 58-63 | 98-103 | 104-111 |
-| 5 | 83-87 | 123-127 | 128-132 |
-| 6 | 101-105 | 141-145 | 146-151 |
+| lesson | vocabulary, printed | vocabulary, PDF | SYNTAX PRACTICE, PDF | whole chapter, PDF |
+|---|---|---|---|---|
+| 1 | 6-10 | 46-50 | 50-55 | 41-57 |
+| 2 | 24-28 | 64-68 | 68-70 | 59-72 |
+| 3 | 38-42 | 78-82 | 83-87 | 73-91 |
+| 4 | 58-63 | 98-103 | 104-111 | 93-115 |
+| 5 | 83-87 | 123-127 | 128-132 | 117-134 |
+| 6 | 101-105 | 141-146 | 146-152 | 135-154 |
+
+Lesson 7's chapter starts at PDF 155 with vocabulary at 161; lesson 8's title page is PDF 178.
 
 For a lesson not in the table, find its VOCABULARY and SYNTAX PRACTICE pages by rendering a few pages after the
 previous lesson's range, then add the row here so the next session doesn't have to search.
