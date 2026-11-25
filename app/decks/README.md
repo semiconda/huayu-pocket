@@ -90,12 +90,17 @@ wrong in this file. An unmarked (neutral) syllable is a lexical fact — look it
 errors if the counts disagree — which is how typos, missing syllables and stray spaces get
 caught. A mismatch almost always means the pinyin is wrong.
 
-### No duplicate hanzi or meanings — including across other decks
+### No duplicate meanings — including across other decks
 If two rows share a meaning ("rice" for both 飯 and 米), a question showing both as options has
-two correct answers and is unanswerable. The same applies to a repeated hanzi. Disambiguate
-instead: `rice (cooked)` and `rice (grain)`.
+two correct answers and is unanswerable. Disambiguate instead: `rice (cooked)` and `rice (grain)`.
 
 The validator checks the other decks too, because decks are merged.
+
+**A repeated hanzi is an error within one deck, and allowed across decks** when a later lesson
+teaches the character with another meaning (張: surname in lesson 2, measure word in lesson 5).
+The app never puts two rows with the same character in one question, and the validator prints a
+NOTE so you can check the meanings really differ. Use it for a genuinely new meaning, not to
+re-gloss a word already taught (see the traps below).
 
 **Shared pinyin is different — keep both words.** Homophones are ordinary in Mandarin: 九 and 久 are
 both *jiǔ*, 他 and 她 are both *tā*. Hearing them apart in context is a skill worth drilling, so
@@ -175,8 +180,8 @@ Three traps specific to this book:
   short ones — answerable without reading a single character, so the slot teaches nothing. Omitting
   it costs less than keeping it. Revisit if enough four-character words accumulate to form a crowd.
 - **A later lesson often re-glosses a word from an earlier one.** Lesson 2 lists 好 again as "very"
-  where lesson 1 has it as "good"; the hanzi column must stay unique across decks, so the second
-  reading is dropped rather than duplicated. Lessons also simply repeat words — 中國 is taught again
+  where lesson 1 has it as "good"; the second reading was dropped back when the hanzi column had to be
+  unique across decks. It could now be its own row as 張 is, but that is the learner's call. Lessons also simply repeat words — 中國 is taught again
   in lesson 3 — and the repeat belongs to whichever lesson had it first.
 - **A later lesson can collide with an earlier one on pinyin alone** — lesson 4's 九 `jiǔ` and lesson
   2's 久 `jiǔ`. Keep both; see the homophone rule above. Other kinds of collision (a repeated
@@ -194,8 +199,9 @@ Three traps specific to this book:
   readings `zhèxiē` / `nàxiē`: they match 這 and 那 as lesson 2 and 4 already teach them, and `zhei`
   has no recording in the corpus while `zhe4` does.
 - **A later lesson's headword can be an earlier lesson's surname.** Lesson 5 teaches 張 as the measure
-  word for flat things, but lesson 2 already has 張 as surname Zhang. The hanzi column is unique across
-  decks, so the measure word was dropped; it is learnable from 一張像片 in the lesson text.
+  word for flat things, and lesson 2 already has 張 as surname Zhang. Both rows are kept, with different
+  meanings: `Zhāng` "surname Zhang" in lesson 2, `zhāng` "measure word: flat things" in lesson 5. The
+  validator prints a NOTE for the repeated character, and the app never puts the two in one question.
 - **A sub-entry that re-glosses a word already in the decks is worth dropping, not disambiguating.**
   Lesson 6 lists 電視機 "television set" under 照像機, and lesson 3 already teaches 電視 "television".
   Two options that differ only by "set" make a question a coin toss, which is worse than one word fewer. A sub-entry that
@@ -225,8 +231,8 @@ Things that reliably go wrong with any source:
 - **Measure words, particles and bound forms are fine** as rows (個, 嗎, 的), but give them a
   gloss that reads sensibly as an option, e.g. `question particle`.
 - **One reading per row.** If a character has two pronunciations with different meanings, make
-  two rows with distinct meanings — but remember the hanzi column must stay unique, so prefer
-  picking the reading the lesson actually teaches.
+  two rows with distinct meanings — in different lessons, since a deck can't repeat a hanzi. Within
+  one lesson, pick the reading the lesson actually teaches.
 
 Order within the file doesn't matter; the app shuffles.
 

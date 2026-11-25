@@ -1236,12 +1236,18 @@
       // alone — a recording, or a line of pinyin — every homophone of the answer is equally
       // correct, so no two of them may share a question. Where the prompt is a character or an
       // English gloss there is no such ambiguity and homophones make excellent distractors.
+      // Case is ignored: 張 the surname (Zhāng) and 張 the measure word (zhāng) sound alike.
       const soundOnlyPrompt = direction.mode === "audio" || direction.promptCol === "pinyin";
+      const sound = row.pinyin.toLowerCase();
 
       const usable = [];
       for (let i = 0; i < items.length; i++) {
         if (items[i][col] === correctValue) continue;
-        if (soundOnlyPrompt && items[i].pinyin === row.pinyin) continue;
+        // One character can be two rows with different meanings (張: surname, measure word).
+        // Two such rows never share a question: under the character each one's gloss is
+        // correct, and as options they would look the same.
+        if (items[i].hanzi === row.hanzi) continue;
+        if (soundOnlyPrompt && items[i].pinyin.toLowerCase() === sound) continue;
         usable.push(i);
       }
 
@@ -1841,7 +1847,8 @@
     try {
       bundledDecks = await loadBundledDecks();
       bundledDecks.forEach(d => selectedDecks.add(d.name));
-      pinyinByHanzi = new Map(bundledDecks.flatMap(d => d.items.map(it => [it.hanzi, it.pinyin])));
+      // A character taught twice (張) keeps its earliest lesson's reading.
+      pinyinByHanzi = new Map(bundledDecks.flatMap(d => d.items.map(it => [it.hanzi, it.pinyin])).reverse());
       renderLessonChips();
       applyDeckSelection();
     } catch (err) {

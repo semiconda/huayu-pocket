@@ -232,11 +232,17 @@ Each question:
    **Homophones.** Mandarin has many (九 and 久 are both *jiǔ*; 他 and 她 are both *tā*), and telling them apart is
    part of learning the language, so both words stay in the deck. What must never happen is two of them sharing a
    question. Whenever the prompt identifies the word by sound alone — any audio direction, or either direction
-   prompted by `pinyin` — distractors exclude every item whose pinyin equals the correct item's, because each of
+   prompted by `pinyin` — distractors exclude every item whose pinyin equals the correct item's, ignoring case
+   (`Zhāng` and `zhāng` sound the same), because each of
    them would be an equally correct answer. Where the prompt is a character or an English gloss no such ambiguity
    exists, and a homophone makes an unusually good distractor. Note that when the *answer* column is `pinyin`
    this costs nothing extra: homophones share that value, so the "exclude the correct value" rule already covers
    them.
+
+   **A character taught twice.** A later lesson can teach a character again with another meaning: 張 is
+   "surname Zhang" in lesson 2 and "measure word: flat things" in lesson 5, as two rows. Distractors always
+   exclude every item with the same `hanzi` as the correct item, in every direction: under the character both
+   glosses would be correct, and as options the two would look the same.
 
    **Same-length options.** Where the answer column is `hanzi` or `pinyin`, distractors are drawn from items with
    the same syllable count as the answer (measured as the character count of `hanzi`). A two-syllable answer sitting
@@ -394,7 +400,8 @@ time it repeats — by design, since they are authored (below).
   "also", "all" and "don't".
 - An option shows what the script toggles say: characters, pinyin, or both. A wrong option's pinyin is looked up by
   its characters in **all** bundled word decks (not just the selected ones — a lesson-6 sentence uses lesson-1
-  words); hanzi are unique across decks, so the lookup has one answer. Numbers are composed from their digits'
+  words). A character taught twice (張) takes its earliest lesson's reading; its readings differ at most in
+  case, which the gap checks ignore. Numbers are composed from their digits'
   pinyin. Answers are compared as **option values**, not button text (v1 compares `textContent`, which breaks once
   a button holds stacked characters and pinyin).
 - The distractor-repeat rule does not apply: a gap has exactly one wrong set.

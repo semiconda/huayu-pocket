@@ -309,6 +309,14 @@ def check_against_other_decks(target, seen_in_file, decks):
                     if col == "pinyin":
                         report("NOTE", "%s is also the reading of a word in %s. Both are kept — "
                                        "homophones never share a question" % (value, name))
+                    elif col == "hanzi":
+                        # A later lesson can teach a character again with another meaning
+                        # (張: surname in lesson 2, measure word in lesson 5). The app never
+                        # puts two rows with the same character in one question, so only the
+                        # meanings have to differ, and the meaning check still enforces that.
+                        report("NOTE", "%s is also a word in %s. Both are kept — make sure the "
+                                       "meanings differ; the two never share a question"
+                               % (value, name))
                     else:
                         report("ERROR", "%s %r also appears in %s. Decks are merged, so this "
                                         "collides" % (col, value, name))
