@@ -51,7 +51,7 @@ added, or how validation works, update `README.md` in the same commit — alongs
 
 **Content follows the textbook.** Decks mirror 新版實用視聽華語 (Practical Audio-Visual Chinese) vol. 1 — the
 standard book at Taiwanese university language centres, and the user's course text. Lessons 1-7 are done (`lesson01.csv` 32 words, `lesson02.csv` 28,
-`lesson03.csv` 29, `lesson04.csv` 40, `lesson05.csv` 40, `lesson06.csv` 32, `lesson07.csv` 42 — 243 in total, 212 of them with audio); lessons 8-12 remain. The page-range table is in `app/decks/README.md`.
+`lesson03.csv` 29, `lesson04.csv` 40, `lesson05.csv` 40, `lesson06.csv` 35, `lesson07.csv` 42 — 246 in total, 215 of them with audio); lessons 8-12 remain. The page-range table is in `app/decks/README.md`.
 
 The user's chosen rhythm: **one or two lessons at a time, staying a little ahead of their class**, so that the
 format keeps getting corrected by real study rather than by guesswork. Don't batch the remainder unasked. An earlier invented `basics.csv` was retired when lesson 1 landed, because
@@ -155,7 +155,7 @@ Learning Taiwanese Mandarin from zero. The app is for:
   "Show in" is Claude's label from the option preview the user picked; they may rename it. On-but-idle toggles are
   a dashed accent outline; Sounds runs with no lesson picked. Not yet seen on a phone.
 - **Start screen — raised, not decided** (don't change unasked): the Mode switch has Practice on the left though
-  Test is the default; the top status line ("243 words loaded…") doesn't mention the 762 sounds; nothing on the
+  Test is the default; the top status line ("246 words loaded…") doesn't mention the 762 sounds; nothing on the
   screen says the lesson chips don't affect Sounds.
 
 - **Project page (`index.html`), 2026-11-09 — edited with the user, line by line.** Their rules for it:
@@ -171,6 +171,8 @@ Learning Taiwanese Mandarin from zero. The app is for:
   子 "noun suffix", 兒 "son (bound form)", 姊姊 and 張 "measure word: flat things"; 相片 and 像片兒 stay out.
   張 is now taught twice (lesson 2 surname, lesson 5 measure word): a character may repeat across decks with a
   different meaning, and the app keeps such rows out of each other's questions (`SPEC.md`, "A character taught twice").
+- **Lesson 6 completed against the book (2026-11-26).** The learner added the printed 電視機 "television set",
+  照相機 "camera (variant)" and 相機 "camera (short, variant)". Rule now: keep every printed sub-entry and variant.
 - **Headless testing of v2:** Chrome headless with `--virtual-time-budget` barely fires `requestAnimationFrame`,
   so Hanzi Writer animations never finish there; shim rAF with `setTimeout(16)` in a scratch copy to test them.
   Strokes can be "drawn" by dispatching mouse events along the character data's `medians`, mapped through the

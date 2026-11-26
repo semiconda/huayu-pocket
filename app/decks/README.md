@@ -202,18 +202,21 @@ Three traps specific to this book:
   word for flat things, and lesson 2 already has 張 as surname Zhang. Both rows are kept, with different
   meanings: `Zhāng` "surname Zhang" in lesson 2, `zhāng` "measure word: flat things" in lesson 5. The
   validator prints a NOTE for the repeated character, and the app never puts the two in one question.
-- **A sub-entry that re-glosses a word already in the decks is worth dropping, not disambiguating.**
-  Lesson 6 lists 電視機 "television set" under 照像機, and lesson 3 already teaches 電視 "television".
-  Two options that differ only by "set" make a question a coin toss, which is worse than one word fewer. A sub-entry that
-  shortens the lesson's own headword is different and is kept: 像機 under 照像機 (lesson 6) is in
-  the deck as `camera (short form)`, because the learner chose to keep everything printed as vocabulary.
+- **Keep every printed sub-entry and variant spelling — the learner's rule.** Lessons 5 and 6 were
+  first entered with some printed entries dropped, and the learner asked for them back. A sub-entry that
+  re-glosses an earlier word stays, with a gloss that says what's different: 電視機 `television set`
+  (lesson 6) next to lesson 3's 電視 `television`. A sub-entry shortening the headword is
+  `camera (short form)` for 像機. A variant spelling shares the pinyin and gets `(variant)`: 姊姊 for
+  姐姐, 照相機 and 相機 for 照像機 and 像機. Homophone handling keeps a variant and its partner out of
+  sound-only questions, and the validator prints a NOTE for each pair. The learner still decides case
+  by case: lesson 5's 相片 and 像片兒 (variants of 像片) were offered and left out.
 - **Erhua words (兒 as -r) are kept as the book prints them, and stay reading-only.** Lesson 7 has
   歌兒 `gēr`, 一點兒 `yīdiǎnr`, 畫兒 `huàr`. One syllable covers two characters, so the validator
   cannot split the pinyin and WARNs, and the corpus has no erhua recordings. Accept both; don't drop
   the 兒 or invent a syllable to make the tools happy.
-- **Where a lesson's only long word is its title word, expect a length WARN and accept it.** 照像機 is
-  the single three-character word in lesson 6; dropping the word the lesson is named after would cost
-  more than the warning does. The app falls back to mixed-length options for it.
+- **Where a lesson's only long word is its title word, expect a length WARN and accept it.** Dropping the
+  word the lesson is named after would cost more than the warning does; the app falls back to
+  mixed-length options for it. (照像機 was such a word until 電視機 and 照相機 joined it in lesson 6.)
 
 Things that reliably go wrong with any source:
 

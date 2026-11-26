@@ -440,7 +440,7 @@ pinyin (compared without spaces and apostrophes, ignoring case). Consequences, a
 
 - A character taught under another meaning still counts (好 is taught as "good"; a sentence may use it as "very"),
   because the reading is the same and the pinyin check proves it. A *different reading* (好 hào) fails.
-- Words the decks deliberately dropped (好久不見, 電視機) cannot appear in sentences.
+- Words the decks deliberately dropped (好久不見) cannot appear in sentences.
 - **Names:** a person is referred to by surname plus title (王先生, 李小姐), written as two tokens. Given names are
   not used: almost none can be built from taught characters.
 - **Numbers** are the one exception to "a token is a deck row": a token made only of 零一二三四五六七八九兩十百千萬億
